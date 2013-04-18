@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<head>
+	<title>Lassoo-Clothing</title>
+	<meta charset="UTF-8" />
+	<link href="css/reset.css" type="text/css" rel="stylesheet" />
+	<link href='http://fonts.googleapis.com/css?family=Economica|Lato|Pontano+Sans|Raleway:100' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="css/style.css">
+	<script src="http://lesscss.googlecode.com/files/less-1.2.2.min.js" type="text/javascript"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/slides.js" type="text/javascript"></script>
+	<script src="js/waypoints.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function() {
+
+			function stopHighlighting(object) {
+				if ($.browser.msie) {
+				   $(object).get(0).onselectstart = function () { return false; };
+				} else
+				{
+				    $(object).get(0).onmousedown = function(e){e.preventDefault()}
+				}
+			}
+
+			stopHighlighting('.account_navigation');
+			stopHighlighting('.featured');
+			
+			$('.featured .button').fadeTo("fast", 0);
+			$(".featured").hover(
+  				function () {
+    				$(this).children('.button').stop(true, true).fadeTo("fast", 0.6);
+  				}, function () {
+    				$(this).children('.button').stop(true, true).fadeTo("fast", 0);
+  				}
+			);
+			$('.featured').slides({
+				pagination: false,
+				preload: true,
+				play: 5000,
+				slideSpeed: 550,
+				next: 'right',
+				prev: 'left'
+  		});
+  			
+  			var hovered = false;
+  			
+  			$('nav li').hover(function() {
+  				var sub = $(this).children('.sub');
+  				if(!sub.hasClass('down') && !sub.hasClass('up')) {
+  					sub.addClass('down').slideDown('normal', function() {
+  						sub.removeClass('down');
+  					});
+  				}
+  			}, function() {
+  				var sub = $(this).children('.sub');
+  				if(!sub.hasClass('up')) {
+  					sub.addClass('up').slideUp('normal', function() {
+  						sub.removeClass('up');
+  					});
+  				}
+  			});
+		});
+	</script>
+	
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<!--[if lt IE 8]>
+	<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+	<![endif]-->
+</head>
+<body>
+		<div class="modal_container">
+			<div class="modal">Modoooo</div>
+		</div>
+	<div class="container">
+		<header>
+			<img src="img/logo.gif" class="logo" alt="LASSOO est MMXII" />
+			<ul class="account_navigation">
+				<li>CREATE ACCOUNT</li>
+				<li>LOGIN</li>
+				<li>4 ITEMS IN YOUR CART (&pound;74.99)</li>
+			</ul>
+		</header>
+	
+		<div class="content">
+			<nav>
+				<ul>
+					<li><a href="index.html">HOME</a></li>
+					<li>
+						<a href="mens.html">MEN</a>
+						<ul class="sub">
+							<a href="#">T-shirts</a><br />
+							<a href="#">Shirts</a><br />
+							<a href="#">Trousers</a><br />
+							<a href="#">Jeans</a><br />
+							<a href="#">Hats</a><br />
+						</ul>
+					</li>
+					<li>
+						<a href="mens.html">WOMEN</a>
+						<ul class="sub">
+							<a href="#">Dresses</a><br />
+							<a href="#">Trousers</a><br />
+							<a href="#">Bags</a><br />
+							<a href="#">Hats</a><br />
+							<a href="#">Shoes</a><br />
+						</ul>
+					</li>
+					<li>
+						<a href="#">KIDS</a>
+						<ul class="sub">
+							<a href="#">T-shirts</a><br />
+							<a href="#">Shirts</a><br />
+							<a href="#">Trousers</a><br />
+							<a href="#">Jeans</a><br />
+							<a href="#">Hats</a><br />
+						</ul>
+					</li>
+					<li><a href="#">ACCESSORIES</a></li>
+					<li><a href="#">FOOTWEAR</a></li>
+					<div class="offset_nav">
+						<li><a href="#">SUMMER</a></li>
+						<li><a href="#">NEW IN</a></li>
+					</div>
+				</ul>	
+			</nav>
+			
+			<section class="featured">
+				<div class="button left"><p><</p></div>
+				<div class="button right"><p>></p></div>
+				<div class="slides_container">
+					<div>
+						<img src="img/banner_3.gif" alt="50% off!"/><!-- MAIN -->
+					</div>
+					<div>
+						<img src="img/banner_2.gif" alt="50% off!"/><!-- MAIN -->
+					</div>
+					<div>
+						<img src="img/banner_3.gif" alt="50% off!"/><!-- MAIN -->
+					</div>
+				</div>
+			</section>
+			
+			<section class="offer">
+				<h2>free shipping on all new orders</h2>
+			</section>
+			<section>
+				<div class="womens_clothing">
+					<div id="information">
+						<span>Women's</span>
+						<span>Fashion new in</span>
+						<span>This spring/Summer</span>
+					</div>
+					<img src="img/womens_clothing_2.gif" alt="Spring/Summer clothing"/>
+				</div>
+
+				<div class="get_inspired">
+					<img src="img/get_inspired.gif" alt="Get inspired!"/>
+					<h4>Get<br />Inspired</h4>
+					<p>Amazingly shit looks and outfit ideas created<br />  by our team of crack smokers</p>
+
+					<a href="#">Have a look ></a>
+				</div>
+			</section>
+
+
+
+			<section class="themes">
+				<ul>
+					<li id="men">
+						<span>
+							<h3>MENS</h3>
+							<small>*instore only</small>
+						</span>
+						<img src="img/men.gif"/>
+					</li>
+					
+					<li id="women">
+						<span>
+							<h3>WOMENS</h3>
+							<small>*instore only</small>
+						</span>
+						<img src="img/womens_.gif"/>
+					</li>
+					
+					<li id="men">
+						<span>
+							<h3>ACCESSORIES</h3>
+							<small>*instore only</small>
+						</span>
+						<img src="img/accessories.gif"/>
+					</li>
+
+				</ul>
+			</section>
+
+			<section class="offer">
+				<h2>50% Discount on everything online</h2>
+			</section>
+			</div>
+
+			<footer>
+				<section>
+					<h4>Questions?</h4>
+					<ul>
+						<li>Contact us</li>
+						<li>Postage and returns</li>
+						<li>Your Orders</li>
+						<li>FAQ & concerns</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Our store</h4>
+					<ul>
+						<li>Men</li>
+						<li>Women</li>
+						<li>Kids</li>
+						<li>Product A-Z</li>
+					</ul>
+				</section>
+				<section>
+					<h4>About us</h4>
+					<ul>
+						<li>Lassoo Blog</li>
+						<li>Facebook</li>
+						<li>Twitter</li>
+						<li>Google+
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h4>The legal stuff</h4>
+					<ul>
+						<li>Our Resp23233onsibility</li>
+						<li>Jobs & Employment</li>
+						<li>Investors</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Our sites</h4>
+					<ul>
+						<li><abbr>Xzibit</abbr></li>
+					</ul>
+				</section>
+				<div class="cardInformation">
+					<!--<img src="img/credit_card.png" class="creditCard" />-->
+				</div>
+			</footer>
+	</div>
+</body>
